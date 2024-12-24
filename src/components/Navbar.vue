@@ -15,7 +15,7 @@
       <button>
         <img :src="search" alt="search" width="20" height="20" />
       </button>
-      <button>
+      <button @click="cartHandler">
         <img :src="shopping" alt="shopping" width="25" height="20" />
       </button>
       <Button
@@ -30,11 +30,11 @@
 </template>
 
 <script>
-import Logo from '../assets/images/logo.svg';
-import Search from '../assets/images/search.svg';
-import Shopping from '../assets/images/shopping.svg';
-import Login from '../assets/images/logout.svg';
-import Button from './Button/button.vue';
+import Logo from "../assets/images/logo.svg";
+import Search from "../assets/images/search.svg";
+import Shopping from "../assets/images/shopping.svg";
+import Login from "../assets/images/logout.svg";
+import Button from "./Button/button.vue";
 
 export default {
   components: {
@@ -49,11 +49,14 @@ export default {
     };
   },
   methods: {
+    cartHandler() {
+      this.$router.push("/cart");
+    },
     toHomeHandler() {
-      this.$router.push('/');
+      this.$router.push("/");
     },
     onLoginClick() {
-      this.$router.push({ name: 'login' });
+      this.$router.push({ name: "login" });
     },
   },
 };
